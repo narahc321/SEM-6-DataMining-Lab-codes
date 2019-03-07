@@ -1,0 +1,7 @@
+a1	a2	classification
+T	T	+
+T	T	+
+T	F	-
+F	F	+
+F	T	-
+F	T	-

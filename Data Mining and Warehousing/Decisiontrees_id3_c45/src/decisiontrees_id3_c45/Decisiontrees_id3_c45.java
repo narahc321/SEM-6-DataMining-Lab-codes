@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package decisiontrees_id3_cart;
+package decisiontrees_id3_c45;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+
+
 
 /**
  *
@@ -31,7 +34,7 @@ class Node{
             for(int i=0;i<prin.size();i++){
                 System.out.print(prin.get(i));
                 i++;
-                System.out.print(" -"+prin.get(i)+"-> ");
+                System.out.print(" --{ "+prin.get(i)+" }--> ");
             }
             System.out.println(this.name);
         }
@@ -122,7 +125,11 @@ class Node{
             for(int j=0;j<rows.size();j++){
 //                System.out.println();
                 tab[columns_set.get(columns.get(i)).get(Data.get(rows.get(j))[columns.get(i)])][columns_set.get(columns.get(columns.size()-1)).get(Data.get(rows.get(j))[columns.get(columns.size()-1)])]++;
+//                System.out.println(columns_set.get(columns.get(i)).get(Data.get(rows.get(j))[columns.get(i)]));
+//                System.out.println(columns_set.get(columns.get(i)).get(Data.get(rows.get(j))[columns.get(i)]));
+//                System.out.println(columns_set.get(columns.get(i)).get(Data.get(rows.get(j))[columns.get(i)]));
             }
+            
 //            for(int x=0;x<(columns_set.get(columns.get(i))).size();x++){
 //                for(int y=0;y<columns_set.get(columns.get(columns.size()-1)).size();y++){
 //                    System.out.print(tab[x][y]+" ");
@@ -181,14 +188,14 @@ class Node{
         return "Unable to predict";
     }
 }
-public class Decisiontrees_id3_cart {
+public class Decisiontrees_id3_c45 {
 
     /**
      * @param args the command line arguments
      */
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\input.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\cardata.txt"));
         String s=" ";
         boolean split_info = true;
         ArrayList <Map<String,Integer>> columns_set = new ArrayList<>();
@@ -239,8 +246,17 @@ public class Decisiontrees_id3_cart {
         obj.calculate(heads, Data,rows,columns,columns_set,split_info);
         ArrayList <String> prin=new ArrayList<>();
         obj.print(prin);
-        String[] predi={"Sunny","Mild","High","Strong"};
-        System.out.println("Play : "+obj.predict(predi));
+//        System.out.println(obj.predict(Data.get(0))+" "+Data.get(0)[Data.get(0).length-1]);
+//        System.out.println(obj.predict(Data.get(1))+" "+Data.get(1)[Data.get(1).length-1]);
+        String [] predi;
+        int cor=0;
+        for(i=0;i<Data.size();i++){
+            predi=Data.get(i);
+            if(obj.predict(predi).equals(predi[predi.length-1]))
+                cor++;
+        }
+        System.out.println(cor+ " / "+ Data.size());
     }
-    
+
 }
+

@@ -196,7 +196,7 @@ public class Decisiontrees_id3_c45 {
      */
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\input.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\cardata.txt"));
         String s=" ";
         boolean split_info = false;
         ArrayList <Map<String,Integer>> columns_set = new ArrayList<>();

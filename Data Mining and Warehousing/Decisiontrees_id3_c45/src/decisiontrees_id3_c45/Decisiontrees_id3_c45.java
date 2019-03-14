@@ -151,7 +151,7 @@ class Node{
     public double cal_score(int[][] tab,int rows,int columns,double tot_infog,boolean split_info){
         int[] sumr= new int[rows];
         int sum_all=0;
-        double x,entro=0.0,tot_entro=0.0,split_in=0.0;
+        double x,entro=0.0,tot_entro=0.0,split_in=1.0;
         for(int i=0;i<rows;i++){
             sumr[i]=0;
             for(int j=0;j<columns;j++)
@@ -170,6 +170,7 @@ class Node{
             tot_entro+=((double)sumr[i]/(double)sum_all)*(entro);
         }
         if(split_info==true){
+            split_in=0.0;
             for(int i=0;i<rows;i++){
                 x=(double)sumr[i]/(double)sum_all;
                 split_in+=(-x)*(double)Math.log((double)x)/(double)Math.log((double)2);
@@ -195,9 +196,9 @@ public class Decisiontrees_id3_c45 {
      */
     
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\cardata.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Narahc\\Documents\\NetBeansProjects\\decisiontrees_id3_cart\\input.txt"));
         String s=" ";
-        boolean split_info = true;
+        boolean split_info = false;
         ArrayList <Map<String,Integer>> columns_set = new ArrayList<>();
         Map<String,Integer> temp_m;
         s=br.readLine();

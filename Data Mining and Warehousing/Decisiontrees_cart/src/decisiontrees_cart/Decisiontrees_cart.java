@@ -161,7 +161,7 @@ class Node{
             for(int j=0;j<rows.size();j++){
                 tot_tab[columns_set.get(columns.get(i)).get(Data.get(rows.get(j))[columns.get(i)])][columns_set.get(columns.get(columns.size()-1)).get(Data.get(rows.get(j))[columns.get(columns.size()-1)])]++;
             }
-            for(int k=1;k<1<<columns_set.get(columns.get(i)).size();k++){
+            for(int k=1;k<1<<columns_set.get(columns.get(i)).size()-1;k++){
                 int [][] tab= new int[2][columns_set.get(columns.get(columns.size()-1)).size()];
                 for(int j=0;j<rows.size();j++){
 //                    System.out.println(columns_set.get(columns.get(columns.size()-1)).get(Data.get(rows.get(j))[columns.get(columns.size()-1)]));
